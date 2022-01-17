@@ -4,6 +4,13 @@
     <h1>My Cart</h1>
   </header>
 
+  <% if Product == 0 -%>
+    <div class="alert alert-danger" role="alert">
+      <p>Your cart is empty! Please add an item from <%= link_to 'products', products_path %> to your cart. 
+      </p>
+    </div> 
+  <% else -%>
+  
   <div class="panel panel-default items">
     <table class="table table-bordered">
       <thead>
@@ -48,5 +55,6 @@
       <% end %>
     </div>
   </div>
+  <% end -%>
 
 </section>
