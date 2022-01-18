@@ -1,4 +1,8 @@
 <article class="product">
+  <% puts product.quantity %>
+  <% if product.quantity == 0 %>
+    <span class="badge badge-warning" >SOLD OUT!</span>
+  <% end %>  
   <header>
     <%= link_to product do %>
       <%= image_tag product.image.thumb, alt: product.name %>
