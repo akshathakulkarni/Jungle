@@ -26,7 +26,7 @@
             TOTAL:
           </th>
           <th>
-            <%= number_to_currency(@order.total_cents) %>
+            <%= number_to_currency(@order.total_cents / 100.0 ) %>
           </th>
         </tr>
         <tr>
