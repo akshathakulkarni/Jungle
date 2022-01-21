@@ -47,6 +47,22 @@
             <%= fa_icon "shopping-cart" %> My Cart (<%= cart.size %>)
           <% end %>
         </li>
+        <li>
+          <% puts "top nav = #{@current_user}" %>
+          <% if @current_user %>
+            Signed in as <%= @current_user.name %>
+          <% else %>
+            <%= link_to 'Login', [:new_session] %>
+          <% end %>
+        </li>
+        <li>
+          <% if @current_user %>
+            <%= link_to "Logout", [:session] %>
+          <% else %>
+            <%= link_to 'Signup', [:new_user] %>
+          <% end %>
+        </li>
+        
       </ul>
     </div>
   </div>
