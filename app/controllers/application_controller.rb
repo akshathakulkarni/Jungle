@@ -2,9 +2,14 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
+  
+  private
+
+  puts "Inside Application controller"
 
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
+    puts "current_user = #{@current_user}"
   end
   helper_method :current_user
 
@@ -12,7 +17,6 @@ class ApplicationController < ActionController::Base
     redirect_to [:new_session] unless current_user
   end
 
-  private
 
   def cart
     @cart ||= cookies[:cart].present? ? JSON.parse(cookies[:cart]) : {}

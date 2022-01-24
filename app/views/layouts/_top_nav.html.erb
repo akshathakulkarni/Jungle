@@ -48,11 +48,15 @@
           <% end %>
         </li>
         <li>
-          <% puts "top nav = #{@current_user}" %>
+          <% puts "from top nav = #{@current_user.inspect}" %>
           <% if @current_user %>
+          <li>
             Signed in as <%= @current_user.name %>
+          </li>
           <% else %>
+          <li>
             <%= link_to 'Login', [:new_session] %>
+          </li>
           <% end %>
         </li>
         <li>
