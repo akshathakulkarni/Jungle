@@ -4,13 +4,12 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(user_params)
-    if @user.save
-      puts "user name = #{@user.name}"
-      session[:user_id] = @user.id
-      redirect_to [:products], notice: 'New user created!'
+    user = User.new(user_params)
+    if user.save
+      session[:user_id] = user.id
+      redirect_to '/', notice: 'New user created!'
     else
-      redirect_to [:users]
+      redirect_to '/signup'
     end
   end
 
