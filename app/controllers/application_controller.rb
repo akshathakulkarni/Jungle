@@ -5,16 +5,13 @@ class ApplicationController < ActionController::Base
   
   private
 
-  puts "Inside Application controller"
-
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
-    puts "current_user = #{@current_user}"
   end
   helper_method :current_user
 
   def authorize
-    redirect_to [:new_session] unless current_user
+    redirect_to '/login'  unless current_user
   end
 
 
